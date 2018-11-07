@@ -1,7 +1,7 @@
 1. Run Tomcat:7 image in detached mode:
 
 ```
-docker container run -d tomcat:7 --name=tomcat
+docker container run -d tomcat:7
 ```{{execute}}
 
 2. Follow the logs of the newly created container and observe the output:
