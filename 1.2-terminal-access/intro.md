@@ -1,1 +1,1 @@
-In this lab, we will examine the Docker CLI and execute our first container.
+In this lab, we will learn about running containers in interactive mode

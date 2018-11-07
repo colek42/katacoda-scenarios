@@ -1,0 +1,24 @@
+{
+  "title": "Detached Mode and Exec",
+  "description": "This lab will examine how to interact with a running container",
+  "details": {
+    "steps": [
+      {
+        "title": "Terminal Access",
+        "text": "step1.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
