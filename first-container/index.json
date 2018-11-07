@@ -1,6 +1,6 @@
 {
-  "title": "Test",
-  "description": "Testing 1",
+  "title": "Run First Container",
+  "description": "In this lab, we will examine the Docker CLI and execute our first container",
   "details": {
     "steps": [
       {
@@ -24,9 +24,9 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal"
+    "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes-cluster"
+    "imageid": "In this lab, we will examine the Docker CLI and execute our first container"
   }
 }
