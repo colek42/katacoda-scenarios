@@ -4,7 +4,7 @@ In this lab, we will learn how to use host mounts as a volume.
 
 
 ```mkdir -p ~/mytmp```{{execute}}
-```docker container run --rm -it -v ~/mymount:/myloc --name mycontainer alpine```{{execute}}
+```docker container run --rm -it -v /mymount:/myloc --name mycontainer alpine```{{execute}}
 The `-v` flag is for volume. What are the other new flags?
 
 - View the mounted file in the container and exit:
