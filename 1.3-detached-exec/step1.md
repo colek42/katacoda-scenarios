@@ -10,11 +10,14 @@ ctrl+c to exit.
 `docker container run -p 80:80 -d --rm --name nginx nginx`{{execute}}  
 `docker container ls`{{execute}}  
 
-Notice the port mapping - port 80 has been mapped to a random port on the host. 
+Notice the port mapping - port 80 in the container has been mapped to port 80 on the host. 
 Go to server https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ and see the NGINX welcome page.
 
 - Gain terminal access to detached container:  
 `docker container exec -it nginx bash`{{execute}}  
 `exit`{{execute}}  
 `docker container ls`{{execute}}  
-`docker rm $(docker kill nginx)`{{execute}}  
+`docker kill nginx`{{execute}}
+
+- What does the --rm argument do?
+- Why would you want to run commands inside a running container?
