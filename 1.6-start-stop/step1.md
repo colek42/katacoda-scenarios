@@ -20,7 +20,7 @@ You should see output of Tomcat server starting up.
 4. Start the container and attach to stdout:
 
 ```
-docker container start -a $(docker ps -a -q)
+docker container start -a -p 8080:8080 $(docker ps -a -q)
 ```{{execute}}
 We're back up and running! You will see Tomcat server go through its startup routine again. 
 Bonus: We saved our filesystem, but not memory and running processes. Reasearch `docker checkpoint`
@@ -30,7 +30,7 @@ Bonus: We saved our filesystem, but not memory and running processes. Reasearch 
 6. Start container again, but without `-a` (attach):
 
 ```
-docker container start $(docker ps -a -q)
+docker container start -p 8080:8080 $(docker ps -a -q)
 ```{{execute}}
 Your container is now running again, but this time in the background.
 ```
