@@ -4,7 +4,7 @@
   "assets": {
     "host01": [
       {
-        "file": "*",
+        "file": "hello.txt",
         "target": "~/myloc"
       }
     ]
@@ -24,7 +24,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "docker"
