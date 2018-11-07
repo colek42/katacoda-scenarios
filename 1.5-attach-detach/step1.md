@@ -13,8 +13,8 @@ The CTRL+C combination killed the container process.
 `docker container run -d -it centos ping 8.8.8.8 -c 50`{{execute}}
 
 - Attach and detach from container:  
-`docker container attach $(docker container ls -q)`  
-`^P^Q` NOTE:  This will not work in katacoda
+`docker container attach $(docker container ls -q)`{{execute}}  
+`^P^Q`{{execute}} NOTE:  This will not work in katacoda
 
 7. Show your container still running in the background:  
 `docker container ls`
