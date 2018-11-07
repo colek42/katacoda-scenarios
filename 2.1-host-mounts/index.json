@@ -5,7 +5,7 @@
     "host01": [
       {
         "file": "hello.txt",
-        "target": "~/"
+        "target": "/mymount"
       }
     ]
   },
