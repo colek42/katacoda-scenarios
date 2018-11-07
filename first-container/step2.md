@@ -3,5 +3,5 @@
 1.  List images `docker image ls`{{execute}}
 1.  List containers `docker container ls`{{execute}}
 
-Why do we have an image but not a container?
-What is an official image?
+- Why do we have an image but not a container?
+- What is an official image?
