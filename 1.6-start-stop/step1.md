@@ -1,8 +1,10 @@
 1. Run Tomcat:7 image in detached mode:
 
 ```
-docker container run -d tomcat:7
+docker container run -p 8080:8080 -d tomcat:7
 ```{{execute}}
+
+(The Tomcat welcome page can be viewed here https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ )
 
 2. Follow the logs of the newly created container and observe the output:
 
@@ -12,25 +14,22 @@ docker container logs -f $(docker ps -q)
 You should see output of Tomcat server starting up.
 (CTRL+C)
 	
-3. Stop the container
-
+- Stop the container:  
 `docker container ls`{{execute}}  
 `docker container stop $(docker ps -q)`{{execute}}
 
-4. Start the container and attach to stdout:
-
+- Start the container and attach to stdout:
 ```
-docker container start -a -p 8080:8080 $(docker ps -a -q)
+docker container start -a $(docker ps -a -q)
 ```{{execute}}
 We're back up and running! You will see Tomcat server go through its startup routine again. 
 Bonus: We saved our filesystem, but not memory and running processes. Reasearch `docker checkpoint`
 
-5. Detach and exit from container using CTRL+C
+Detach and exit from container using CTRL+C
 
-6. Start container again, but without `-a` (attach):
-
+- Start container again, but without `-a` (attach):
 ```
-docker container start -p 8080:8080 $(docker ps -a -q)
+docker container start $(docker ps -a -q)
 ```{{execute}}
 Your container is now running again, but this time in the background.
 ```
