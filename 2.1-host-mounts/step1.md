@@ -2,7 +2,7 @@ In this lab, we will learn how to use host mounts as a volume.
 
 - Run a container with attached host volume, since docker is running on a remote host we will mount a volume to the container and create a file
 
-```docker container run -v ~/myloc:/myloc --name mycontainer alpine bash -c "touch hello.txt && sleep 1000"```{{execute}}
+```docker container run -v ~/myloc:/myloc --name mycontainer alpine touch hello.txt && sleep 1000```{{execute}}
 The `-v` flag is for volume. What are the other new flags?
 
 - The container is still runnings
