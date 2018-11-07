@@ -11,6 +11,7 @@ This command runs the container, attaches to standard input stream, and get a ps
 `exit`{{execute}}
 
 - Run the container once again:
-`docker run -it ubuntu:16.04 bash && ls`{{execute}}
+`docker run -it ubuntu:16.04 bash`{{execute}}
+`ls`{{execute}}
 
 Where did our file go?
