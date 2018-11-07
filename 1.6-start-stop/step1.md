@@ -14,10 +14,8 @@ You should see output of Tomcat server starting up.
 	
 3. Stop the container
 
-```
-docker container ls
-docker container stop $(docker ps -q)
-```{{execute}}
+`docker container ls`{{execute}}  
+`docker container stop $(docker ps -q)`{{execute}}
 
 4. Start the container and attach to stdout:
 
