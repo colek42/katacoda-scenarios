@@ -6,7 +6,7 @@ In this lab, we will learn how to interact with an already running Docker contai
 `docker container run -it --name nginx nginx`{{execute}}  
 ctrl+c to exit.
 
-- Run the NGINX image in detached mode:
+- Run the NGINX image in detached mode:  
 `docker container ls`{{execute}}  
 `docker container run -d --name nginx nginx`{{execute}}  
 `docker container ls`{{execute}}  
