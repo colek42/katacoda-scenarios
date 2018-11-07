@@ -1,13 +1,11 @@
-1. Run Tomcat:7 image in detached mode:
-
+- Run Tomcat:7 image in detached mode:
 ```
 docker container run -p 8080:8080 -d tomcat:7
 ```{{execute}}
 
 (The Tomcat welcome page can be viewed here https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ )
 
-2. Follow the logs of the newly created container and observe the output:
-
+- Follow the logs of the newly created container and observe the output:
 ```
 docker container logs -f $(docker ps -q)
 ```{{execute}}
