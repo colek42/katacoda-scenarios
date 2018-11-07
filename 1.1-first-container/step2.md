@@ -1,5 +1,3 @@
-# Pull an image
-
 -  List images `docker image ls`{{execute}}
 -  Pull hello-world image `docker image pull hello-world`{{execute}}
 -  List images `docker image ls`{{execute}}
