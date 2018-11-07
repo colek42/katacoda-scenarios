@@ -1,0 +1,24 @@
+{
+  "title": "Interactive Mode",
+  "description": "In this lab, we will learn how to use our container in interactive mode",
+  "details": {
+    "steps": [
+      {
+        "title": "Terminal Access",
+        "text": "step1.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}

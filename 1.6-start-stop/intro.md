@@ -1,0 +1,1 @@
+In this lab, we will learn how to start and stop containers.

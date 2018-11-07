@@ -1,1 +1,1 @@
-In this lab, we will learn about running containers in interactive mode
+In this lab, we will learn about attaching and detaching to a container's STDOUT
