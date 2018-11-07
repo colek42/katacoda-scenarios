@@ -14,7 +14,7 @@ The CTRL+C combination killed the container process.
 
 - Attach and detach from container:  
 `docker container attach $(docker container ls -q)`{{execute}}  
-`^P^Q`{{execute}} NOTE:  This will not work in katacoda
+`^P^Q`{{execute}} NOTE:  This will not work in katacoda, CTRL-Q maps to quit.
 
 7. Show your container still running in the background:  
 `docker container ls`
