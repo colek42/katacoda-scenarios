@@ -4,8 +4,8 @@
   "assets": {
     "host01": [
       {
-        "file": "hello.txt",
-        "target": "/mymount"
+        "file": "*",
+        "target": "/root"
       }
     ]
   },
