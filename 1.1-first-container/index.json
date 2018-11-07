@@ -1,18 +1,18 @@
 {
-  "title": "Run First Container",
+  "title": "Run Your First Container",
   "description": "In this lab, we will examine the Docker CLI and execute our first container",
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Search Docker Hub",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Pull Image",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Run Image",
         "text": "step3.md"
       }
     ],

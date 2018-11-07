@@ -1,0 +1,1 @@
+In this lab, we will examine the Docker CLI and execute our first container.
