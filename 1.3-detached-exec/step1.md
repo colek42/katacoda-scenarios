@@ -8,7 +8,7 @@ ctrl+c to exit.
 
 - Run the NGINX image in detached mode:  
 `docker container ls`{{execute}}  
-`docker container run -d --name nginx nginx`{{execute}}  
+`docker container run -d --rm --name nginx nginx`{{execute}}  
 `docker container ls`{{execute}}  
 
 Notice the port mapping - port 80 has been mapped to a random port on the host. 
