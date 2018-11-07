@@ -1,14 +1,14 @@
 In this lab, we will learn how to use host mounts as a volume.
 
-- Run a container with attached host volume:
+- Run a container with attached host volume, there is a file named `hello.txt` located on the host server.
 
 
 ```mkdir -p ~/mytmp```{{execute}}
-```docker container run --rm -it -v ~/mytmp:/myloc --name mycontainer alpine```{{execute}}
+```docker container run --rm -it -v ~/mymount:/myloc --name mycontainer alpine```{{execute}}
 The `-v` flag is for volume. What are the other new flags?
 
-- Create a temporary file in the container and exit:
-```echo "Hello Docker" > /myloc/test.txt```{{execute}}
+- View the mounted file in the container and exit:
+```cat /myloc/hello.txt```{{execute}}
 ```exit```{{execute}}
 
 - View the contents of `test.txt` on the host filesystem:
