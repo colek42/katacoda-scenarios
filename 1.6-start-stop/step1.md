@@ -3,7 +3,7 @@
 docker container run -p 8080:8080 -d tomcat:7
 ```{{execute}}
 
-(The Tomcat welcome page can be viewed here https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ )
+(The Tomcat welcome page can be viewed here https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/ )
 
 - Follow the logs of the newly created container and observe the output:
 ```
