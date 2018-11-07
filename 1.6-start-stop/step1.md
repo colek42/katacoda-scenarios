@@ -22,8 +22,7 @@ docker container start -a $(docker ps -a -q)
 ```{{execute}}
 We're back up and running! You will see Tomcat server go through its startup routine again. 
 Bonus: We saved our filesystem, but not memory and running processes. Reasearch `docker checkpoint`
-
-Detach and exit from container using CTRL+C
+```Detach and exit from container using CTRL+C```
 
 - Start container again, but without `-a` (attach):
 ```
