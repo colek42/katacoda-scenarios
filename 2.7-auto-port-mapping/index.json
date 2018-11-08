@@ -1,0 +1,17 @@
+{
+  "title": "Auto Port Mapping",
+  "description": "In this lab, we will learn about automatically exposing and publishing ports.",
+  "details": {
+    "steps": [
+      {
+        "text": "step1.md"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
