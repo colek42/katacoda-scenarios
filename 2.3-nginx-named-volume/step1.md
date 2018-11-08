@@ -5,7 +5,9 @@ In this lab, we will run Nginx with the content of our local host directory.
 
 - Run NGINX container using a host volume mount
 ```docker container run -p 80:80 -v ~/myloc:/usr/share/nginx/html nginx```{{execute}}
-
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+Visit https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ and check if it is working!  
+`CTRL-C to exit`
 
 Did it work? What happened to the content that was already at the path /usr/share/nginx/html?
+
+Can you change the content without stopping the NGINX service?
