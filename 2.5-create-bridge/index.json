@@ -1,0 +1,17 @@
+{
+  "title": "Create a Bridge Network",
+  "description": "In this lab, we will create a docker default bridge network",
+  "details": {
+    "steps": [
+      {
+        "text": "step1.md"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
