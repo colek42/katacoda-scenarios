@@ -1,10 +1,13 @@
 {
-  "title": "Manual Port Mapping",
-  "description": "In this lab, we will learn about manually exposing and publishing ports.",
+  "title": "Cullex 1",
+  "description": "In this lab we will communicate between two containers.",
   "details": {
     "steps": [
       {
         "text": "step1.md"
+      },
+      {
+        "text": "step2.md"
       }
     ]
   },
