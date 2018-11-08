@@ -1,17 +1,11 @@
-- Create a container using the Ubuntu 16.04 image and connect to STDIN and a terminal:
+In this lab, we will run Nginx with the content of our local host directory.
 
-`docker run -it ubuntu:16.04 bash`{{execute}}
+- Create a new directory "content" with file "index.html" on your host. Add some text to the file.
+```docker container run -v /root/www/html:/mnt/html alpine echo "Hello World" > index.html```{{execute}}
 
-This command runs the container, attaches to standard input stream, and get a pseudo-terminal. For the container process, we specify bash to get the terminal.
+- Run NGINX container using a host volume mount
+```docker container run -p 80:80 -d -v /root/www/html:/usr/share/nginx/html nginx```{{execute}}
 
-- Create a file using the touch command:
-`touch test && ls`{{execute}}
+https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
-- You should see the file created in the root directory of the container. Now exit:
-`exit`{{execute}}
-
-- Run the container once again:
-`docker run -it ubuntu:16.04 bash`{{execute}}
-`ls`{{execute}}
-
-Where did our file go?
+Did it work? What happened to the content that was already at the path /usr/share/nginx/html?
