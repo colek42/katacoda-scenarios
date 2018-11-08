@@ -8,7 +8,7 @@ Store this value in an environment variable.
 ```export CENTOS_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q))```{{execute}}
 
 - Launch another Centos container called "centos2" and get terminal access:
-```docker container run -it --name centos2 centos bash```{{execute}}
+```docker container run -e CENTOS_IP=${CENTOS_IP} -it --name centos3 centos bash```{{execute}}
 
 - Ping your "centos1" container using the IP address from Step 3.
 ```ping ${CENTOS_IP}```{{execute}}
