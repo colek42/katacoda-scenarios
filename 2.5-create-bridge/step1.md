@@ -11,13 +11,5 @@
 - Launch another Centos container on your "my_bridge" network and connect to it:
 ```docker container run -it --network my_bridge --name centos4 centos```{{execute}}
 
-- Open the `/etc/hosts` file:
-```cat /etc/hosts```{{execute}}
-Do you see centos3? Why didn't we in the previous exercise?
-
 - Ping "centos3" using the container name:
 ```ping centos3```{{execute}}
-
-- Ping "centos1" and "centos2" using the container name:
-```ping centos1```{{execute}}
-```ping centos2```{{execute}}
