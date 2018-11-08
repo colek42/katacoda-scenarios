@@ -6,7 +6,9 @@
 
 - Inspect your new volume:  
 ```docker volume inspect myvolume```{{execute}}
-Take note the `"Mountpoint"`.
+
+- Store the mountpoint in a variable:
+```export MOUNTPOINT=$(docker volume inspect myvolume | jq .[0].Mountpoint)```{{execute}}
 
 - Run a new container with your Named volume mounted:  
 ```docker container run --rm -it -v myvolume:/myloc/tmp --name mycontainer alpine```{{execute}}
@@ -15,4 +17,5 @@ Take note the `"Mountpoint"`.
 ```touch /myloc/tmp/test.txt```{{execute}}
 ```exit```{{execute}}
 
-- 
+- View the contents of Volume "myvolume" on the remote host.  Notice we are mounting directly from the filesystem.
+```docker container run --rm -v $MOUNTPOINT:/other/location --name othercontainer alpine ls /other/location```{{execute}}
