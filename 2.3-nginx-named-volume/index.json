@@ -3,13 +3,10 @@
   "description": "In this lab, we will run Nginx with the content of a remote host directory",
   "details": {
     "steps": [
-    ],
-    "intro": {
-      "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
-    }
+      {
+        "text": "step1.md"
+      }
+    ]
   },
   "environment": {
     "uilayout": "terminal"
