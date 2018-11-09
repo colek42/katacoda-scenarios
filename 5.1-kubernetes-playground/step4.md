@@ -71,6 +71,8 @@ spec:
           name: api-config
 ```{{copy}}
 
+```kubectl apply -f pod-config.yaml```
+
 Describe the pod  
 ```kubectl describe pod nginx```{{execute}}
 

@@ -35,6 +35,6 @@ spec:
 
 #### Delete the Pod
 Run either
-```kubectl delete -f nginx-pod.yaml```{{execute}}
+```kubectl delete -f nginx-pod.yaml```{{execute}}  
 
 ```kubectl delete pods nginx```{{execute}}
