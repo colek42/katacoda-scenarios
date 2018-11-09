@@ -101,7 +101,10 @@ spec:
         backend:
           serviceName: httpd
           servicePort: 80
-```copy
+```{{copy}}
+
+```kubectl apply -f test-ingress.yaml```
+
 
 ### 7.3. Test the Ingress
 Add the ingress to your hosts
