@@ -107,14 +107,9 @@ spec:
 
 
 ### 7.3. Test the Ingress
-Add the ingress to your hosts
-```printf 127.0.0.1 ingress.test.com | sudo tee -a /etc/hosts```{{execute}}
-
-Test the ingress:
-```curl ingress.test.com```{{execute}}
 
 Test nginx:
-```curl ingress.test.com/nginx```{{execute}}
+```curl -H "Host: ingress.test.com" <<IP>>/nginx```{{copy}}
 
 Test apache:
-```curl ingress.test.com/apache```{{execute}}
+```curl -H "Host: ingress.test.com" <<HOST>>/apache```{{copy}}
