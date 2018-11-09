@@ -1,8 +1,8 @@
 ## 8. Persistent Volumes and Claims
 ### 8.1. Make a Mount Path
 
-```mkdir /mnt/data && cd ~```{{execute}}
-```echo 'Hello from Kubernetes storage' > /mnt/data/index.html```{{execute}}
+```mkdir /mnt/data && cd ~```{{execute}}  
+```echo 'Hello from Kubernetes storage' > /mnt/data/index.html```{{execute}}  
 
 
 ### 8.2. HostPath Volume
@@ -82,3 +82,5 @@ Exec into the pod and curl localhost
 
 - Try changing the content in the mount.  What happens when you curl the pod again?
 - Persistence is complex.  https://kubernetes.io/docs/concepts/storage/persistent-volumes
+
+- Survey https://docs.google.com/forms/d/1lYZXTY5RIbcE2GFrKnCsA726nCjpaQ0DSkTYFImo05A/edit
