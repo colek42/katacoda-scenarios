@@ -30,7 +30,7 @@ spec:
         - containerPort: 80
 ```{{copy}}
 
-```kubectl apply -f nginx-deployment.yaml```
+```kubectl apply -f nginx-deployment.yaml```{{execute}}
 
 ## 6. Create a Service
 
