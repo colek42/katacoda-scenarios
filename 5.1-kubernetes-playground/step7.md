@@ -76,9 +76,9 @@ spec:
 
 ### 8.5. Check what nginx is serving
 Exec into the pod and curl localhost
-```kubectl exec -it task-pv-pod -- /bin/bash```{{execute}}
-```apt-get update && apt-get -y install curl```{{execute}}
-```curl localhost```{{execute}}
+```kubectl exec -it task-pv-pod -- /bin/bash```{{execute}}  
+```apt-get update && apt-get -y install curl```{{execute}}  
+```curl localhost```{{execute}}  
 
-Hello from Kubernetes storage
-```
+- Try changing the content in the mount.  What happens when you curl the pod again?
+- Persistence is complex.  https://kubernetes.io/docs/concepts/storage/persistent-volumes
