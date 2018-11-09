@@ -17,8 +17,12 @@ spec:
 
 ```kubectl apply -f nginx-pod.yaml```{{execute}}
 
+
+
 #### Viewing the Pods
-```kubectl get pods``{{execute}}
+```kubectl get pods```{{execute}}
+```kubectl get po --watch```{{execute}}
+
 
 ```kubectl get pods --show-labels```{{execute}}
 
@@ -31,6 +35,7 @@ spec:
 
 #### Delete the Pod
 Run either
+
 ```kubectl delete -f nginx-pod.yaml```{{execute}}
 
 ```kubectl delete pods nginx```{{execute}}

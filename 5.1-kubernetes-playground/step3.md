@@ -1,78 +1,5 @@
-## 2. The CLI
-```
-$ kubectl --help
-$ kubectl get all
-$ kubectl get all --all-namespaces
-```
-
-## 3. Create a pod
-
-### 3.1. Nginx Pod
-Create `nginx-pod.yaml`:
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 80
-```
-
-```
-$ kubectl apply -f nginx-pod.yaml
-pod "nginx" created
-```
-
-#### Viewing the Pods
-```
-$ kubectl get pods
-NAME      READY     STATUS    RESTARTS   AGE
-nginx     1/1       Running   0          13s
-```
-
-```
-$ kubectl get pods --show-labels
-NAME      READY     STATUS    RESTARTS   AGE       LABELS
-nginx     1/1       Running   0          25s       <none>
-```
-
-```
-$ kubectl get pods -o wide
-NAME      READY     STATUS    RESTARTS   AGE       IP          NODE
-nginx     1/1       Running   0          44s       10.32.0.5   node1
-```
-
-```
-$ kubectl get pods nginx -o yaml
-apiVersion: v1
-kind: Pod
-metadata:
-...
-```
-#### Pod Details
-```
-$ kubectl describe pods nginx
-Name:         nginx
-Namespace:    default
-...
-```
-
-#### Delete the Pod
-Run either
-```
-$ kubectl delete -f nginx-pod.yaml
-```
-or
-```
-$ kubectl delete pods nginx
-```
-
 ### 3.2. Multi-Container Pod
-Make a file `two-container-pod.yaml`:
+Make a file `touch two-container-pod.yaml`{{execute}}:
 ```
 apiVersion: v1
 kind: Pod
@@ -98,33 +25,23 @@ spec:
       mountPath: /pod-data
     command: ["/bin/sh"]
     args: ["-c", "echo Hello from the debian container > /pod-data/index.html"]
-```
-```
-$ kubectl apply -f two-container-pod.yaml
-```
+```{{copy}}
+
+```kubectl apply -f two-container-pod.yaml```{{execute}}
 #### Show the Pod
-```
-$ kubectl get pods
-NAME             READY     STATUS      RESTARTS   AGE
-two-containers   1/2       Completed   0          2m
-```
+```kubectl get pods --watch```{{execute}}
 
 Why is there only 1 container of 2?
-
 Look at the debain container, it writes a file and exits. And the `restartPolicy` is set to `Never`
 
 #### Check the file contents
-```
-$ kubectl -it exec two-containers -c nginx-container cat /usr/share/nginx/html/index.html
-```
+```kubectl -it exec two-containers -c nginx-container cat /usr/share/nginx/html/index.html```{{execute}}
 
 #### Delete the pod
-```
-$ kubectl delete -f two-container-pod.yaml
-```
+```kubectl delete -f two-container-pod.yaml```{{execute}}
 
 ### 3.3. Pod with Environmental Variables
-Create `pod-with-env.yaml`:
+Create `touch pod-with-env.yaml`{{execute}}:
 ```
 apiVersion: v1
 kind: Pod
@@ -139,11 +56,9 @@ spec:
     env:
     - name: ENV_VAR
       value: ENV_VAL
-```
+```{{copy}}
 
-```
-$ kubectl apply -f pod-with-env.yaml
-```
+```kubectl apply -f pod-with-env.yaml```{{execute}}
 
 #### Check the Environment
 Describe the pod. Notice the "Environment" section:
