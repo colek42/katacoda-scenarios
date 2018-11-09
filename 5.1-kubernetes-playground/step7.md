@@ -83,4 +83,4 @@ Exec into the pod and curl localhost
 - Try changing the content in the mount.  What happens when you curl the pod again?
 - Persistence is complex.  https://kubernetes.io/docs/concepts/storage/persistent-volumes
 
-- Survey https://docs.google.com/forms/d/1lYZXTY5RIbcE2GFrKnCsA726nCjpaQ0DSkTYFImo05A/edit
+- Survey https://docs.google.com/forms/d/1lYZXTY5RIbcE2GFrKnCsA726nCjpaQ0DSkTYFImo05A
