@@ -60,7 +60,7 @@ spec:
 WRTITE DOWN THE CLUSTER-IP
 
 Ping the ClusterIP from node01
-```ssh node01```{{{execute}}}
+```ssh node01```{{execute}}
 
 Cluster IP (VIP) is routable from any of the pods
 ```
@@ -98,5 +98,5 @@ spec:
 # Get the Kubernetes node's IPs
 ```kubectl get node -o wide```{{execute}}
 
-Use the internal ip and execute:
+Use the internal ip or node name and execute:
 ```curl node01:30080```{{execute}}
