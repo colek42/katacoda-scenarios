@@ -1,0 +1,17 @@
+{
+  "title": "K8s Playground",
+  "description": "A Workspace for Kubernetes learning",
+  "details": {
+    "steps": [
+      {
+        "text": "step1.md"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}

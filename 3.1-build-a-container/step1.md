@@ -8,8 +8,8 @@
 ```docker build –t python-app:latest .```{{execute}}
 
 - Where is the image?
-```docker image ls```
+```docker image ls```{{execute}}
 
 - Tag the image again.
-```docker image tag python-app:latest python-app:v1.0-dev```
+```docker image tag python-app:latest python-app:v1.0-dev```{{execute}}
 
