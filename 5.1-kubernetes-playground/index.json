@@ -1,6 +1,8 @@
 {
-  "title": "K8s Playground",
-  "description": "A Workspace for Kubernetes learning",
+  "pathwayTitle": "Kubernetes",
+  "icon": "fa-kubernetes",
+  "title": "Kubernetes Playground",
+  "description": "Use Kubernetes in a hosted sandboxed interactive environment",
   "details": {
     "steps": [
       {
@@ -27,9 +29,13 @@
     ]
   },
   "environment": {
-    "uilayout": "editor-terminal"
+      "showdashboard": true,
+      "dashboard": "Dashboard",
+      "uilayout": "terminal-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "minikube"
+      "port": 8080,
+      "imageid": "kubernetes-cluster-running"
   }
 }
