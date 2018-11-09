@@ -1,272 +1,7 @@
-## 2. The CLI
-```
-$ kubectl --help
-$ kubectl get all
-$ kubectl get all --all-namespaces
-```
-
-## 3. Create a pod
-
-### 3.1. Nginx Pod
-Create `nginx-pod.yaml`:
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 80
-```
-
-```
-$ kubectl apply -f nginx-pod.yaml
-pod "nginx" created
-```
-
-#### Viewing the Pods
-```
-$ kubectl get pods
-NAME      READY     STATUS    RESTARTS   AGE
-nginx     1/1       Running   0          13s
-```
-
-```
-$ kubectl get pods --show-labels
-NAME      READY     STATUS    RESTARTS   AGE       LABELS
-nginx     1/1       Running   0          25s       <none>
-```
-
-```
-$ kubectl get pods -o wide
-NAME      READY     STATUS    RESTARTS   AGE       IP          NODE
-nginx     1/1       Running   0          44s       10.32.0.5   node1
-```
-
-```
-$ kubectl get pods nginx -o yaml
-apiVersion: v1
-kind: Pod
-metadata:
-...
-```
-#### Pod Details
-```
-$ kubectl describe pods nginx
-Name:         nginx
-Namespace:    default
-...
-```
-
-#### Delete the Pod
-Run either
-```
-$ kubectl delete -f nginx-pod.yaml
-```
-or
-```
-$ kubectl delete pods nginx
-```
-
-### 3.2. Multi-Container Pod
-Make a file `two-container-pod.yaml`:
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: two-containers
-spec:
-  restartPolicy: Never
-  volumes:
-  - name: shared-data
-    emptyDir: {}
-
-  containers:
-  - name: nginx-container
-    image: nginx:1.7.9
-    volumeMounts:
-    - name: shared-data
-      mountPath: /usr/share/nginx/html
-
-  - name: debian-container
-    image: debian
-    volumeMounts:
-    - name: shared-data
-      mountPath: /pod-data
-    command: ["/bin/sh"]
-    args: ["-c", "echo Hello from the debian container > /pod-data/index.html"]
-```
-```
-$ kubectl apply -f two-container-pod.yaml
-```
-#### Show the Pod
-```
-$ kubectl get pods
-NAME             READY     STATUS      RESTARTS   AGE
-two-containers   1/2       Completed   0          2m
-```
-
-Why is there only 1 container of 2?
-
-Look at the debain container, it writes a file and exits. And the `restartPolicy` is set to `Never`
-
-#### Check the file contents
-```
-$ kubectl -it exec two-containers -c nginx-container cat /usr/share/nginx/html/index.html
-```
-
-#### Delete the pod
-```
-$ kubectl delete -f two-container-pod.yaml
-```
-
-### 3.3. Pod with Environmental Variables
-Create `pod-with-env.yaml`:
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 80
-    env:
-    - name: ENV_VAR
-      value: ENV_VAL
-```
-
-```
-$ kubectl apply -f pod-with-env.yaml
-```
-
-#### Check the Environment
-Describe the pod. Notice the "Environment" section:
-```
-$ kubectl describe pod nginx
-...
-Environment:
-  ENV_VAR:  ENV_VAL
-...
-```
-
-Check your local env variables:
-```
-$ env | grep ENV
-```
-Check the contaienrs env vars:
-```
-$ kubectl exec -it nginx -- env | grep ENV
-ENV_VAR=ENV_VAL
-```
-
-#### Delete the pod
-```
-kubectl delete -f pod-with-env.yaml
-```
-
-## 4. ConfigMaps and Secrets
-### 4.1. Create a ConfigMap
-Make `api-configmap.yaml`
-```
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: api-config
-data:
-  endpoint: api.boxboat.net
-  port: "80"
-```
-```
-kubectl apply -f api-configmap.yaml
-```
-### 4.2. Create a secret
-Create base64 encoded values for a username/password
-```
-$ printf 'admin' | base64
-YWRtaW4=
-$ printf 'password' | base64
-cGFzc3dvcmQ=
-```
-
-Create `api-secrets.yaml`:
-```
-apiVersion: v1
-kind: Secret
-metadata:
-  name: api-secrets
-type: Opaque
-data:
-  username: YWRtaW4=
-  password: cGFzc3dvcmQ=
-```
-```
-kubectl apply -f api-secrets.yaml
-```
-
-### 4.3. Use the ConfigMap and Secret
-Create pod-config.yaml
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 80
-    env:
-    - name: API_USER
-      valueFrom:
-        secretKeyRef:
-          key: username
-          name: api-secrets
-    - name: API_PASS
-      valueFrom:
-        secretKeyRef:
-          key: password
-          name: api-secrets
-    - name: API_ENDPOINT
-      valueFrom:
-        configMapKeyRef:
-          key: endpoint
-          name: api-config
-    - name: API_PORT
-      valueFrom:
-        configMapKeyRef:
-          key: port
-          name: api-config
-```
-
-Describe the pod
-```
-$ kubectl describe pod nginx
-...
-Environment:
-  API_USER:      <set to the key 'username' in secret 'api-secrets'>     Optional: false
-  API_PASS:      <set to the key 'password' in secret 'api-secrets'>     Optional: false
-  API_ENDPOINT:  <set to the key 'endpoint' of config map 'api-config'>  Optional: false
-  API_PORT:      <set to the key 'port' of config map 'api-config'>      Optional: false
-...
-```
-
-Read the data from the container:
-```
-$ kubectl exec -it nginx -- env | grep API
-API_PORT=80
-API_USER=admin
-API_PASS=password
-API_ENDPOINT=api.boxboat.net
-```
-
 ## 5. Create a Deployment
+
+Create `touch nginx-deployment.yaml`{{execute}}:
+
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -293,11 +28,14 @@ spec:
         image: nginx:1.15.4
         ports:
         - containerPort: 80
-```
+```{{copy}}
+
+```kubectl apply -f nginx-deployment.yaml```
 
 ## 6. Create a Service
 
-### 6.1. Create an cluster ip service
+### 6.1. Create `touch service-clusterip.yaml`{{execute}}
+
 ```
 apiVersion: v1
 kind: Service
@@ -312,14 +50,13 @@ spec:
     protocol: TCP
   selector:
     app: nginx
-```
+```{{copy}}
 
-On a manager node, create a `service-clusterip.yaml` file with that service definition and do:
-```
-kubectl apply -f service-clusterip.yaml
+```kubectl apply -f service-clusterip.yaml```{{execute}}
+```kubectl get services```{{execute}} ```kubectl get svc```{{execute}}
 
-kubectl get services
-```
+Ping the ClusterIP from node01
+```ssh node01```{{{execute}}}
 
 On a worker node do
 ```
