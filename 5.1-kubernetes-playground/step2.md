@@ -1,6 +1,6 @@
 ### 3.1. Nginx Pod
 
-Create `nginx-pod.yaml`:
+Create `touch nginx-pod.yaml`{{execute}}:
 
 ```
 apiVersion: v1
@@ -13,7 +13,7 @@ spec:
     image: nginx:1.7.9
     ports:
     - containerPort: 80
-```
+```{{copy}}
 
 ```kubectl apply -f nginx-pod.yaml```{{execute}}
 
@@ -35,7 +35,6 @@ spec:
 
 #### Delete the Pod
 Run either
-
 ```kubectl delete -f nginx-pod.yaml```{{execute}}
 
 ```kubectl delete pods nginx```{{execute}}
