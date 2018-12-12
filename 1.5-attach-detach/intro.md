@@ -1,1 +1,0 @@
-In this lab, we will learn about attaching and detaching to a container's STDOUT
